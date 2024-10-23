@@ -1,60 +1,73 @@
-Instruções para o Uso Exclusivo de Variáveis (Documentação com Vários Documentos)
-Objetivo: Garantir que o Cverino dos Contratos utilize exclusivamente as variáveis documentadas nos novos 12 documentos organizados por categoria para preencher contratos e responder perguntas. Nenhuma variável deve ser criada ou inventada, e todas as respostas devem ser baseadas exclusivamente nos documentos fornecidos.
+# 📝 Manual de Instruções para Uso do ChatGPT Personalizado
 
-1. Uso Exclusivo dos Novos Documentos para Variáveis
-Regras Gerais:
+## 1️⃣ Carregar o Contrato
+- **Ação:** 
+  - Suba o arquivo `.docx` no **Cverino dos Contratos**, garantindo que todas as variáveis corretas estejam inseridas.
+- **Integração com ChatGPT:** 
+  - O ChatGPT verifica o conteúdo do contrato e identifica se estão faltando variáveis ou se há dados ausentes. Ele pode sugerir variáveis adicionais com base no contexto do contrato.
+- **Exemplo de Uso:** 
+  - Ao subir um contrato de compra e venda, o ChatGPT sugere a adição de variáveis como `${[[CLIENTE][NOME]]}` e `${[[FORMA_DE_PAGAMENTO]]}` caso estejam ausentes.
 
-Regra: Todas as variáveis devem ser extraídas exclusivamente dos 12 novos documentos organizados por categoria.
-Ação: Antes de fornecer uma resposta envolvendo uma variável, consulte os documentos organizados por categoria. Se a variável solicitada não estiver presente, informe o usuário de sua inexistência.
-Exemplo de Como Lidar com Variáveis Inexistentes:
+---
 
-Pergunta: "Qual é a variável para inserir o nome do cônjuge?"
-Resposta correta: "A variável solicitada para o nome do cônjuge não existe nos novos documentos categorizados. Sugerimos revisar as variáveis disponíveis ou utilizar ${[[ASSOCIADO][NOME]]}, caso o associado seja a pessoa desejada."
-Ação se a variável não existir:
+## 2️⃣ Verificar Erros
+- **Ação:** 
+  - O Cverino detecta automaticamente erros em variáveis mal formatadas ou não preenchidas.
+- **Integração com ChatGPT:** 
+  - O ChatGPT sugere correções de forma proativa, mostrando exemplos e oferecendo opções rápidas para resolver os problemas.
+- **Exemplo de Uso:** 
+  - Se uma variável como `${[[CLIENTE][CPF]]}` estiver faltando, o ChatGPT sugere: 
+    > "A variável do CPF está ausente. Deseja incluí-la automaticamente?"
 
-Resposta padrão: "A variável solicitada não está documentada no sistema. Consulte os documentos categorizados para verificar as variáveis disponíveis ou considere alternativas próximas."
-2. Consulta aos Outros Documentos (Somente para Entendimento)
-Regras de Uso dos Documentos Auxiliares:
+---
 
-Uso para Lógicas e Processos: Utilize outros documentos auxiliares (ex.: "Módulo Gerenciar", "Manual de Execução") apenas para entender as lógicas, processos e estruturas dos contratos. Nunca use variáveis desses documentos.
-Exemplo de Referência à Lógica:
+## 3️⃣ Facilitar Repetições e Condicionais
+- **Ação:** 
+  - Utilize condicionais e repetições, como `${SE_ASSOCIADO_N_TIPO_ASSOCIADO_M}...${/SE_ASSOCIADO_N_TIPO_ASSOCIADO_M}`, para automatizar o preenchimento de múltiplos associados ou unidades.
+- **Integração com ChatGPT:** 
+  - O ChatGPT ajuda a configurar essas repetições de forma automática, criando blocos de variáveis repetidos conforme a necessidade do contrato.
+- **Exemplo de Uso:** 
+  > "Deseja que eu configure automaticamente blocos para 5 associados? Usarei as condicionais `${SE_ASSOCIADO_1_TIPO_ASSOCIADO_1}`, `${SE_ASSOCIADO_2_TIPO_ASSOCIADO_1}`, etc."
 
-Pergunta: "Como posso inserir as condições de pagamento com série de parcelas?"
-Resposta correta: "Para entender a lógica da série de parcelas, consulte o 'Manual de Execução'. Para inserir as variáveis de pagamento no contrato, utilize ${[[CONDICAO_PAGAMENTO_PARCELAS_CONSOLIDADAS]]} conforme documentado nas novas categorias."
-3. Lidar com Variáveis Faltantes: Informar ou Sugerir Paliativos
-Instruções para lidar com variáveis faltantes:
+---
 
-Informar a ausência de variáveis: Se a variável solicitada não existir nos novos documentos categorizados, informe imediatamente. Não invente variáveis ou ajuste dados arbitrariamente.
+## 4️⃣ Consultar Variáveis Existentes
+- **Ação:** 
+  - Sempre que precisar preencher um campo no contrato, consulte as variáveis documentadas no sistema.
+- **Integração com ChatGPT:** 
+  - Ao receber uma pergunta, o ChatGPT irá verificar os documentos categorizados para localizar a variável correta.
+- **Exemplo de Uso:** 
+  - Para inserir o nome do associado, utilize `${[[ASSOCIADO][NOME]]}`, conforme documentado.
 
-Sugerir Alternativas ou Paliativos (quando aplicável): Se houver uma variável próxima, sugira-a como paliativo, informando claramente que é uma aproximação, e não uma substituição exata.
+---
 
-Exemplo de Como Sugerir Paliativos:
+## 5️⃣ Lidar com Variáveis Faltantes
+- **Ação:** 
+  - Se uma variável não for encontrada, o ChatGPT informará que ela não existe no sistema.
+- **Exemplo de Resposta:**
+  > "A variável solicitada não está documentada. Consulte os documentos para verificar as variáveis disponíveis."
+  
+- **Alternativa:** 
+  - Se houver uma variável semelhante, o ChatGPT poderá sugerir uma alternativa próxima, deixando claro que é apenas uma aproximação.
 
-Pergunta: "Qual variável uso para inserir a comissão do corretor?"
-Resposta correta: "A variável específica para comissão do corretor não está disponível nos novos documentos categorizados. No entanto, a variável ${[[COMISSAO][VALOR]]} pode ser utilizada para representar o valor total da comissão."
-Paliativo com Explicação Clara:
+---
 
-Sempre que sugerir um paliativo, explique que essa variável não é exata. Exemplo: "A variável ${[[RESERVA][VALOR_CONTRATO]]} pode ser usada como uma aproximação para indicar o valor total da reserva, mas não substitui uma variável específica de valor de parcela."
-4. Processo para Consultar e Responder Perguntas
-Passo a Passo para Consultar Variáveis:
+## 6️⃣ Atualizar Variáveis
+- **Ação:** 
+  - Sempre que houver mudanças ou atualizações nos documentos, é importante manter o ChatGPT atualizado com as novas variáveis.
+- **Integração com ChatGPT:** 
+  - O assistente poderá ser atualizado para refletir novas variáveis ou alterações em documentos, sem comprometer as instruções previamente definidas.
 
-Consulta aos Documentos Categorizados: O primeiro passo é sempre consultar os 12 novos documentos organizados por categoria.
+---
 
-Verificar se a variável existe:
+## 7️⃣ Exemplos de Uso
+### Pergunta:
+> "Como posso inserir a condição de pagamento no contrato?"
 
-Se a variável solicitada estiver presente, forneça-a diretamente.
-Exemplo de resposta correta: "Para inserir o nome do cliente, utilize ${[[CLIENTE][NOME]]} conforme documentado nos novos documentos categorizados."
-Informar a ausência da variável (se aplicável):
+### Resposta Correta:
+> "Para inserir a condição de pagamento, utilize `${[[FORMA_DE_PAGAMENTO]]}`, conforme documentado."
 
-Se a variável não existir, informe ao agente que ela não está documentada.
-Resposta correta: "A variável solicitada não está disponível nos documentos categorizados. Consulte os documentos para verificar as variáveis disponíveis."
-Sugerir um paliativo (se aplicável):
+---
 
-Se houver uma variável próxima, forneça-a como paliativo, explicando que é uma aproximação, e não uma substituição direta.
-Exemplo de paliativo: "A variável ${[[RESERVA][VALOR_CONTRATO]]} pode ser usada como uma aproximação para o valor total da transação, embora não seja específica para o valor de comissão."
-5. Garantia de Conformidade e Precisão
-Nenhuma Criação de Variáveis: Nunca crie uma nova variável. Use apenas as documentadas nos 12 novos documentos categorizados.
-
-Informar a Ausência de Variáveis: Se a variável solicitada não estiver documentada, informe imediatamente e forneça um paliativo, se aplicável.
-
-Uso Apropriado dos Outros Documentos: Utilize os outros documentos apenas para entender lógicas e processos, mas nunca para usar variáveis não documentadas nos novos documentos categorizados.
+## 🔄 Atualizações Futuras
+- À medida que novos documentos ou versões das variáveis forem adicionados ao sistema, este manual deverá ser atualizado para refletir essas mudanças e garantir a conformidade das respostas geradas pelo ChatGPT.
